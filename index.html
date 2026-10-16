@@ -226,9 +226,9 @@ function render(){ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#0d1b2a';ctx.fill
  else panel('Game Over',['You made it to '+ZONES[zoneIdx].n+'!','Score '+Math.floor(score)+'     Best '+best,'Peaches and coins collected: '+coins,'','Share your score with Cullman County Meme Factory!'],'PLAY AGAIN');}
 let last=performance.now();function loop(now){const dt=Math.max(0,Math.min(.05,(now-last)/1000));last=now;update(dt);render();requestAnimationFrame(loop);}requestAnimationFrame(loop);
 window.__game={get state(){return state},get score(){return score},get zone(){return ZONES[zoneIdx].n},warp(d){dist=d;obs=[];},start,over,P};
+window.__ccStart=function(){try{au()}catch(_){}if(state!=='play')start();};
 })();
 
-window.__ccStart=function(){try{au()}catch(_){}if(state!=='play')start();};
 </script><script>(function(){var done=false;
 function go(e){if(done)return;done=true;if(e&&e.type==='touchend'&&e.cancelable)e.preventDefault();if(e&&e.stopPropagation)e.stopPropagation();
 var o=document.getElementById('tp');if(o&&o.parentNode)o.parentNode.removeChild(o);
