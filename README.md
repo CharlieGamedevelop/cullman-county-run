@@ -10,8 +10,8 @@ Both games are **plain HTML and JavaScript with no build step**. What is in the 
 Owner: the personal GitHub account **CharlieGamedevelop** (a user account, not an organization). Both repos are public and served by GitHub Pages from the `main` branch, root folder.
 
 ## Files
-- **Gridiron:** `index.html` (page, start screen, safe storage, error bar), `game.js` (all game code), `teams.json` (school data), `og.png`, `apple-touch-icon.png`.
-- **Run:** `index.html` (everything inline), `og.png`, `apple-touch-icon.png`.
+- **Gridiron:** `index.html` (page, start screen, safe storage, error bar), `game.js` (all game code), `teams.json` (school data), `fit.js` and `fit.css` (screen fitting), `manifest.webmanifest` plus `icon-*.png` (Add to Home Screen), `og.png`.
+- **Run:** `index.html` (game inline), plus the same `fit.js`, `fit.css`, manifest and icons.
 
 ## Edit in the browser (github.com or the GitHub mobile app)
 1. Open the repo, tap the file (for example `teams.json`), then tap the pencil (Edit).
@@ -60,6 +60,24 @@ The defense simulation odds are in `simDrive()`. Points and morale changes are i
 5. **Error bar:** any uncaught script error shows a red bar at the top with the message. Ask testers for a screenshot of it.
 6. Keep the syntax at ES2017 for older iPhones: no `?.`, no `??`, no class fields.
 
+## Screen fit (fit.js / fit.css), keep these
+- The page is locked to the visible viewport (`visualViewport`, `100dvh`), with no scrolling, pull-to-refresh, overscroll bounce, pinch zoom, double-tap zoom, long-press menu or text selection.
+- `viewport-fit=cover` plus `env(safe-area-inset-*)`: the game draws inside the safe area, so nothing sits under a notch, the Dynamic Island or the iOS home bar. Only the background fills the edges.
+- Gridiron scales pixels to a whole number of device pixels when it can (Screen Fit = FIT), so the art stays crisp. FILL uses the whole safe area, and STRETCH ignores the safe areas.
+- The Fullscreen button (⛶) only appears where the Fullscreen API works (Android, tablets and desktop browsers, not iPhone). It never runs automatically.
+
+## Add to Home Screen (true full screen on iPhone)
+- **iPhone/iPad (Safari):** open the game, tap Share, then **Add to Home Screen**, then Add. Launch it from the new icon and it opens with no Safari bars.
+- **Android (Chrome or Samsung Internet):** open the game, tap the ⋮ menu, then **Add to Home screen** (or **Install app**). It opens full screen.
+
+## Gridiron settings (title screen, then SETTINGS; saved with the safe storage wrapper)
+Music volume, SFX volume, Announcer on/off, Voice speed, Vibration, Graphics (high = sharp at the device's pixel ratio, low = 1x for older devices), Effects (full/reduced: confetti and shake), Frame rate (60/30), Screen fit (fit/fill/stretch), Left handed (mirrors menu buttons and the corner buttons), Drag power (0.5x to 1.8x), Text size (normal/large), High contrast, Quarter length (short 60 s, normal 90 s, long 120 s), Difficulty (easy/normal/hard), Show FPS, Fullscreen (only where supported), and Reset Save (tap twice within 3 seconds).
+
+## Audio and announcer
+- All music and sound effects are generated in code with WebAudio in `game.js` (`SONGS`, `SFX`). The tracks are original compositions: title theme, in-game loop, victory jingle and championship fanfare. No school fight songs or copyrighted melodies are used, so keep it that way when editing.
+- Audio unlocks on the first tap only (an iOS rule). It suspends when the tab is hidden and resumes when you come back.
+- The announcer shows call banners and speaks with `speechSynthesis` (for example "Touchdown, Hanceville!" or "First down!", plus the matchup and stadium on the intro). If the voice API is missing, it plays short chiptune blips instead and never throws an error.
+
 ## Phone testing checklist
 - [ ] iPhone Safari: open the link with a new `?v=`, tap TAP TO PLAY, and the title screen appears.
 - [ ] iPhone in the Facebook or Messenger app browser: same check (this is where most players will come from).
@@ -72,6 +90,8 @@ The defense simulation odds are in `simDrive()`. Points and morale changes are i
 - [ ] Play to the final whistle and see the final screen and record.
 - [ ] Close the tab, reopen, and Continue Career is there with the same record.
 - [ ] Rotate the phone during a game and the field resizes.
+- [ ] Settings: change music and SFX volume, toggle the announcer (you hear a voice on the intro), and confirm settings survive a reload.
+- [ ] Add to Home Screen, launch from the icon, and nothing sits under the notch or home bar.
 - [ ] No red error bar at any point.
 
 ## Roll back a bad commit
