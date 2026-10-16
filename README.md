@@ -4,7 +4,7 @@ Both games are **plain HTML and JavaScript with no build step**. What is in the 
 
 | Game | Repo | Live URL |
 |---|---|---|
-| Cullman County Gridiron | https://github.com/CharlieGamedevelop/cullman-county-gridiron | https://charliegamedevelop.github.io/cullman-county-gridiron/?v=4 |
+| Cullman County Gridiron | https://github.com/CharlieGamedevelop/cullman-county-gridiron | https://charliegamedevelop.github.io/cullman-county-gridiron/?v=5 |
 | Cullman County Run | https://github.com/CharlieGamedevelop/cullman-county-run | https://charliegamedevelop.github.io/cullman-county-run/?v=3 |
 
 Owner: the personal GitHub account **CharlieGamedevelop** (a user account, not an organization). Both repos are public and served by GitHub Pages from the `main` branch, root folder.
@@ -17,7 +17,7 @@ Owner: the personal GitHub account **CharlieGamedevelop** (a user account, not a
 1. Open the repo, tap the file (for example `teams.json`), then tap the pencil (Edit).
 2. Make the change and tap **Commit changes**, committing directly to `main`.
 3. GitHub Pages redeploys in about 1 to 2 minutes. You can watch it under the repo's **Actions** tab ("pages build and deployment").
-4. Phones cache pages for about 10 minutes. Bump the cache-bust number in the link you share (`?v=4` becomes `?v=5`). If you changed `game.js`, also bump `game.js?v=4` inside `index.html` so browsers fetch the new script.
+4. Phones cache pages for about 10 minutes. Bump the cache-bust number in the link you share (`?v=5` becomes `?v=6`). If you changed `game.js`, also bump `game.js?v=5` inside `index.html` so browsers fetch the new script.
 
 The GitHub mobile app can view files and make simple edits. For larger edits, use github.com in a desktop browser, or press `.` on a repo page to open the web editor.
 
