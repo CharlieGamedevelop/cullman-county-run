@@ -19,7 +19,7 @@ canvas{display:block;width:100vw;height:100vh}
 #mute{position:fixed;top:10px;right:10px;z-index:2;font:600 18px system-ui;background:rgba(0,0,0,.45);color:#fff;border:2px solid #fff;border-radius:10px;padding:6px 10px;cursor:pointer}
 </style><style>#tp{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:rgba(5,10,25,.88);color:#fff;font-family:system-ui,sans-serif;text-align:center;padding:24px;box-sizing:border-box}
 #tp h1{margin:0;font-size:clamp(28px,8vw,52px)}#tp p{margin:0;font-size:clamp(15px,4.2vw,20px);line-height:1.45;max-width:560px}
-#tpb{font:800 clamp(26px,8vw,44px) system-ui;color:#fff;background:#c0392b;border:4px solid #fff;border-radius:999px;padding:22px 48px;box-shadow:0 8px 30px rgba(0,0,0,.5);animation:pu 1.2s infinite;cursor:pointer}
+#tpb{font:800 clamp(26px,8vw,44px) system-ui;color:#fff;background:#c0392b;border:4px solid #fff;border-radius:999px;padding:22px 48px;box-shadow:0 8px 30px rgba(0,0,0,.5);animation:pu 1.2s infinite;touch-action:manipulation;cursor:pointer}
 @keyframes pu{50%{transform:scale(1.07)}}#rot{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#ffd400;color:#111;font:700 15px system-ui;text-align:center;padding:10px}
 @media (orientation:portrait) and (max-width:900px){#rot{display:block}}</style>
 <link rel="icon" href="apple-touch-icon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"></head><body>
@@ -225,5 +225,5 @@ window.__game={get state(){return state},get score(){return score},get zone(){re
 })();
 </script><script>(function(){const o=document.getElementById('tp');function go(e){e.preventDefault();e.stopPropagation();o.remove();
 try{const d=document.documentElement;const r=d.requestFullscreen||d.webkitRequestFullscreen;if(r){const q=r.call(d);if(q&&q.then)q.then(()=>{try{screen.orientation.lock('landscape').catch(()=>{})}catch(_){}}).catch(()=>{})}}catch(_){}
-setTimeout(()=>{dispatchEvent(new Event('resize'));try{jumpPress()}catch(_){}},60);}
+setTimeout(()=>{dispatchEvent(new Event('resize'));try{const c=document.getElementById('c');c.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,clientX:innerWidth/2,clientY:innerHeight/2}));c.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,clientX:innerWidth/2,clientY:innerHeight/2}))}catch(_){}},60);}
 o.addEventListener('pointerdown',go);o.addEventListener('keydown',go);addEventListener('keydown',function k(e){if(document.getElementById('tp')&&(e.key===' '||e.key==='Enter')){removeEventListener('keydown',k);go(e)}});})();</script></body></html>
