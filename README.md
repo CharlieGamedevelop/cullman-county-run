@@ -70,11 +70,18 @@ The defense simulation odds are in `simDrive()`. Points and morale changes are i
 - **iPhone/iPad (Safari):** open the game, tap Share, then **Add to Home Screen**, then Add. Launch it from the new icon and it opens with no Safari bars.
 - **Android (Chrome or Samsung Internet):** open the game, tap the ⋮ menu, then **Add to Home screen** (or **Install app**). It opens full screen.
 
-## How to play Gridiron (v6)
+## How to play Gridiron (v7)
 1. Before each snap, three big play cards appear at the bottom. Use the < and > arrows to switch between 3 pages. On every page, card 1 is a RUN and cards 2 and 3 are PASS plays. Tap a card to run that play (the snap happens right away). On a computer, keys 1, 2 and 3 pick a card and the Left and Right arrows change pages.
 2. **Pass plays:** each eligible receiver gets a ring. Green is open, yellow is close, red is covered. Tap a receiver to throw to him. The throw leads him, and accuracy depends on how open he is and your QB rating. Tap the QB to scramble. The old slingshot still works if you drag from open grass.
 3. **Run plays:** the QB hands off to the RB automatically, and the RB follows the play's path. Swipe up or down to take over steering, and tap to juke.
-4. **Sideways (landscape):** the camera zooms so the whole width of the field (sideline to sideline), every player and the first-down line are visible. The HUD sits above the field and the play cards sit below it. In portrait, a "Rotate your phone sideways for the full field" screen appears once per game; tap it to keep playing in portrait.
+4. **Sideways (landscape):** a broadcast camera sits close, with players about 1.75x bigger than in v6, and follows the ball smoothly. On pass plays it zooms out only as far as it needs to so every receiver stays on screen. The play cards sit below the field.
+5. **Scoreboard bar (always on top):** both team logos, abbreviations and scores, the quarter and game clock, down and distance (for example `3rd & 7`), ball position (for example `HAN 35`), and timeouts (3 pips per team, reset at halftime; display only for now). The bar sits inside the safe area, clear of the notch.
+6. **Field:** yard numbers (the far-side numbers are upside down, like on TV), hash marks, goal lines, painted end zones with team names and colors, sidelines with team benches and goal posts. A blue line marks the line of scrimmage and a yellow line marks the first down. A first down needs 10 yards.
+7. **After a touchdown:** pick **GO FOR 2** or **KICK PAT**. Going for 2 puts the ball at the 10. Pick any run or pass from the playbook: score and you get 2 points, otherwise the try fails. Either way, you kick off next.
+8. **Kicking (PAT and field goals):** the meter has two steps. Step 1 is POWER: tap to stop the bar, and you must reach the white marker, which moves farther for longer kicks. Step 2 is AIM: a needle sweeps left and right; tap inside the green zone. The ball flies at the goal posts and only scores between the uprights (the result reads SHORT, WIDE LEFT or WIDE RIGHT on a miss). The kicker's rating and the special teams coach widen the zone and add range. Punts and kickoffs use a single tap.
+9. **4th down:** choose PUNT, GO FOR IT or FIELD GOAL. The field goal button only shows when you are in range; otherwise it reads TOO FAR.
+10. **Jersey colors:** when both teams have similar colors, the visitors wear white. 
+11. **Portrait:** a "Rotate your phone sideways for the full field" screen appears once per game; tap it to keep playing in portrait.
 
 ### Playbook (`PLAYS` in game.js)
 | Page | Card 1 (run) | Card 2 (pass) | Card 3 (pass) |
@@ -101,7 +108,7 @@ Music volume, SFX volume, Announcer on/off, Voice speed, Vibration, Graphics (hi
 - [ ] New Career, pick a school, Play Game, page through all 3 play pages, and pick each of the 9 plays.
 - [ ] On a pass play, tap a receiver and he catches it; on a run play, the RB gets the ball automatically, swipe to steer, tap to juke.
 - [ ] Sideways: the whole field width is visible and the cards don't cover players.
-- [ ] 4th down menu, punt meter, field goal meter, extra point.
+- [ ] 4th down menu (punt, go for it, field goal), two-step kick meter, TD choice (go for 2 run and pass, PAT make and miss).
 - [ ] The defense ticker appears and you get the ball back.
 - [ ] Play to the final whistle and see the final screen and record.
 - [ ] Close the tab, reopen, and Continue Career is there with the same record.
